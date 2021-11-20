@@ -1,0 +1,39 @@
+.painttool-container {
+  @apply box-border;
+  @apply py-1 px-5;
+  @apply rounded-full shadow;
+  @apply absolute left-1/2 transform -translate-x-1/2 -translate-y-1/2;
+  @apply bg-gray-50;
+  @apply select-none;
+  @apply flex;
+  max-width: 600px;
+  min-width: 600px;
+  top: 90%;
+}
+
+.painttool-container .painttool-toolitem {
+  @apply relative px-3;
+  @apply flex flex-col justify-center items-center;
+  @apply cursor-pointer;
+  @apply font-light  text-xs text-center;
+}
+
+.painttool-container .painttool-toolitem:hover {
+  @apply text-red-500;
+}
+
+.painttool-toolitem .rotate {
+  transform: rotateY(180deg);
+}
+
+.more::after {
+  content: '';
+  position: absolute;
+  width: 0;
+  height: 0;
+  border-left: 2px solid transparent;
+  border-right: 2px solid transparent;
+  border-bottom: 4px solid #666;
+  right: 8px;
+  top: 0;
+}
