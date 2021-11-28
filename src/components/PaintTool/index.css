@@ -2,10 +2,11 @@
   @apply box-border;
   @apply py-1 px-5;
   @apply rounded-full shadow;
-  @apply absolute left-1/2 transform -translate-x-1/2 -translate-y-1/2;
-  @apply bg-gray-50;
+  @apply fixed left-1/2 transform -translate-x-1/2 -translate-y-1/2;
+  @apply bg-gray-100;
   @apply select-none;
   @apply flex;
+  @apply transition duration-500;
   max-width: 600px;
   min-width: 600px;
   top: 90%;
@@ -16,6 +17,7 @@
   @apply flex flex-col justify-center items-center;
   @apply cursor-pointer;
   @apply font-light  text-xs text-center;
+  @apply transition duration-300;
 }
 
 .painttool-container .painttool-toolitem:hover {

@@ -1,4 +1,4 @@
-import { FC, ReactElement } from 'react';
+import { FC, MouseEventHandler, ReactElement } from 'react';
 import './index.css';
 
 import {
@@ -12,11 +12,15 @@ export interface PaintToolItemProps {
   className?: string;
   label: string;
   icon: ReactElement;
+  onToolClick?: MouseEventHandler<HTMLDivElement>;
 }
 
 const PaintToolItem: FC<PaintToolItemProps> = (props) => {
   return (
-    <div className={`painttool-toolitem ${props.className}`}>
+    <div
+      className={`painttool-toolitem ${props.className ? props.className : ''}`}
+      onClick={props.onToolClick}
+    >
       {props.icon}
       <span>{props.label}</span>
     </div>
@@ -33,7 +37,11 @@ const PaintTool: FC = () => {
         icon={<IconRedoStroked className='rotate' size='large' />}
       />
       <PaintToolItem label='重做' icon={<IconRedoStroked size='large' />} />
-      <PaintToolItem label='清空' icon={<IconDeleteStroked size='large' />} />
+      <PaintToolItem
+        onToolClick={() => console.log(1)}
+        label='清空'
+        icon={<IconDeleteStroked size='large' />}
+      />
     </div>
   );
 };

@@ -1,2 +1,3 @@
-.parintboard-container {
+.paintboard-container .paintboard-canvas {
+  @apply bg-gray-50;
 }
