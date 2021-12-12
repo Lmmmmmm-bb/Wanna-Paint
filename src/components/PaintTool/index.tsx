@@ -1,4 +1,4 @@
-import { FC, MouseEventHandler, ReactElement } from 'react';
+import { FC, MouseEventHandler, ReactElement, RefObject } from 'react';
 import './index.css';
 
 import {
@@ -27,7 +27,15 @@ const PaintToolItem: FC<PaintToolItemProps> = (props) => {
   );
 };
 
-const PaintTool: FC = () => {
+const PaintTool: FC<{ canvasRef: RefObject<HTMLCanvasElement> }> = (props) => {
+  const handleClearToolClick = () => {
+    const canvas = props.canvasRef.current;
+    if (canvas) {
+      const ctx = canvas.getContext('2d');
+      ctx && ctx.clearRect(0, 0, canvas.width, canvas.height);
+    }
+  };
+
   return (
     <div className='painttool-container'>
       <PaintToolItem label='保存' icon={<IconSaveStroked size='large' />} />
@@ -38,7 +46,7 @@ const PaintTool: FC = () => {
       />
       <PaintToolItem label='重做' icon={<IconRedoStroked size='large' />} />
       <PaintToolItem
-        onToolClick={() => console.log(1)}
+        onToolClick={handleClearToolClick}
         label='清空'
         icon={<IconDeleteStroked size='large' />}
       />

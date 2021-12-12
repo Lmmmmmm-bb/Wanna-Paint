@@ -1,4 +1,4 @@
-import './index.scss';
+import './index.css';
 import { Switch, Route, Redirect } from 'react-router-dom';
 
 import Paint from '../pages/Paint';
