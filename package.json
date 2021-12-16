@@ -32,6 +32,9 @@
     "build": "craco build",
     "test": "craco test",
     "commit": "cz",
+    "prepare": "husky install",
+    "check": "npx prettier --check .",
+    "format": "npx prettier --write .",
     "eject": "react-scripts eject"
   },
   "eslintConfig": {
@@ -55,8 +58,12 @@
   "devDependencies": {
     "@commitlint/cli": "^15.0.0",
     "@commitlint/config-conventional": "^15.0.0",
+    "commitlint-config-cz": "^0.13.2",
     "cz-conventional-changelog": "^3.3.0",
-    "husky": "^7.0.4"
+    "cz-customizable": "^6.3.0",
+    "husky": "^7.0.4",
+    "lint-staged": "^12.1.2",
+    "prettier": "2.5.1"
   },
   "husky": {
     "hooks": {
@@ -65,7 +72,10 @@
   },
   "config": {
     "commitizen": {
-      "path": "./node_modules/cz-conventional-changelog"
+      "path": "./node_modules/cz-customizable"
     }
+  },
+  "lint-staged": {
+    "**/*": "prettier --write --ignore-unknown"
   }
 }

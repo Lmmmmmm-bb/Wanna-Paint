@@ -12,28 +12,24 @@ module.exports = {
   ],
 
   scopes: [
-    { name: '模块1' },
-    { name: '模块2' },
-    { name: '模块3' },
-    { name: '模块4' }
-  ],
-
-  // it needs to match the value for field type. Eg.: 'fix'
-  /*
-  scopeOverrides: {
-    fix: [
-      {name: 'merge'},
-      {name: 'style'},
-      {name: 'e2eTest'},
-      {name: 'unitTest'}
-    ]
-  },
-  */
-  // override the messages, defaults are as follows
+    ['components', '组件相关'],
+    ['hooks', 'hook 相关'],
+    ['utils', 'utils 相关'],
+    ['element-ui', '对 element-ui 的调整'],
+    ['styles', '样式相关'],
+    ['deps', '项目依赖'],
+    ['auth', '对 auth 修改'],
+    ['other', '其他修改'],
+    ['custom', '以上都不是？我要自定义']
+  ].map(([value, description]) => {
+    return {
+      value,
+      name: `${value.padEnd(30)} (${description})`
+    };
+  }),
   messages: {
     type: '选择一种你的提交类型:',
     scope: '选择一个scope (可选):',
-    // used if allowCustomScopes is true
     customScope: 'Denote the SCOPE of this change:',
     subject: '短说明:\n',
     body: '长说明，使用"|"换行(可选)：\n',
@@ -45,7 +41,5 @@ module.exports = {
   allowCustomScopes: true,
   allowBreakingChanges: ['特性', '修复'],
 
-  // limit subject length
   subjectLimit: 100
-
 };
