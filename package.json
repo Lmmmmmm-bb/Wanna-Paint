@@ -31,7 +31,7 @@
     "start": "craco start",
     "build": "craco build",
     "test": "craco test",
-    "commit": "cz",
+    "commit": "./node_modules/cz-customizable/standalone.js",
     "prepare": "husky install",
     "check": "npx prettier --check .",
     "format": "npx prettier --write .",
